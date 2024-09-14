@@ -1,0 +1,17 @@
+<div>
+  <section *ngIf="user" id="tasks">
+    <header>
+      <h2 >    {{ user.name}}'Tasks</h2>
+      <menu>
+        <button (click)="openDialog()" > add task </button>
+        <app-task-popup (newTaskList)="addNewTask($event)" [user]="selecteduser.id" [isOpen]="isDialogOpen"></app-task-popup>
+      </menu>
+    </header>
+    <ul>
+      <li>
+        <app-task (completedTask)="removeCompletedTask($event)" [tasksSent]="userTasks" [user]="user" ></app-task>
+      </li>
+    </ul>
+  </section>
+</div>
+

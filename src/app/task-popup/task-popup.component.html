@@ -1,0 +1,26 @@
+<app-card>
+<div class="modal" *ngIf="isOpen">
+  <div class="modal-content">
+    <span class="close-btn" (click)="onCancel()">&times;</span>
+    <h2>Task Details</h2>
+    <form [formGroup]="taskForm">
+      <label for="id">Id:</label>
+      <input type="text" id="id" formControlName="id">
+
+      <label for="userId">User Id:</label>
+      <input type="text" id="userId" formControlName="userId"  [value]="user">
+
+      <label for="title">Title:</label>
+      <input type="text" id="title" formControlName="title">
+
+      <label for="summary">Summary:</label>
+      <textarea id="summary" formControlName="summary"></textarea>
+
+      <label for="dueDate">Due Date:</label>
+      <input type="date" id="dueDate" formControlName="dueDate">
+
+      <button type="button" (click)="onSubmit()">Submit</button>
+    </form>
+  </div>
+</div>
+</app-card>

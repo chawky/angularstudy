@@ -1,0 +1,26 @@
+<app-card>
+<article>
+  <h2>
+    the user selected is {{user.name}}
+  </h2>
+  <p *ngIf="tasksSent.length != 0">  the task selected is : </p>
+  <ul *ngFor="let userTask of tasksSent " >
+
+    <li>
+
+      <h2>{{userTask.title}} </h2>
+
+
+  <time>Time: {{userTask.dueDate}} </time>
+  <p>summary : {{userTask.summary}} </p>
+  <p class="actions" >
+    <button (click)="handleCompleteTask(userTask)">
+      completed
+    </button>
+  </p>
+    </li>
+  </ul>
+</article>
+</app-card>
+
+
