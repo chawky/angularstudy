@@ -67,6 +67,16 @@ export class TasksComponent {
 
   ] ;
   users=DUMMY_USERS
+  constructor() {
+  if(typeof localStorage !== 'undefined'){
+    localStorage.setItem('tasks',JSON.stringify(this.tasks))
+    const tasks = localStorage.getItem('tasks')
+
+    if(tasks){
+      this.tasks = JSON.parse(tasks);
+    }
+    }
+  }
   get userTasks() :taskDetails[] {
     return  this.tasks.filter((t?: any) => t.userId == this.user?.id) ;
   }
